@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignId('cafeteria_id')->constrained()->cascadeOnDelete();
             $table->decimal('total_price', 10, 2);
             $table->string('status')->default('pending');
-            $table->string('payment_method');
+            $table->string('payment_method')->default('cash');
             $table->text('note')->nullable();
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignId('cafeteria_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('image')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 8, 2);
             $table->text('description')->nullable();
             $table->string('weight')->nullable();
             $table->boolean('is_available')->default(true);

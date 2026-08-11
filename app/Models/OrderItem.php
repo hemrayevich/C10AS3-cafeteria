@@ -16,13 +16,12 @@ class OrderItem extends Model
         'price',
     ];
 
-    // Элемент принадлежит конкретному заказу
     public function order()
     {
         return $this->belongsTo(Order::class);
     }
 
-    // Элемент ссылается на напиток
+    
     public function drink()
     {
         return $this->belongsTo(Drink::class);

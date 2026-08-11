@@ -33,11 +33,6 @@ class Drink extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function favoritedBy(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'favorites');
-    }
-
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class);
@@ -46,5 +41,10 @@ class Drink extends Model
     public function reviews(): HasMany
     {
         return $this->hasMany(Reviews::class);
+    }
+
+    public function favoritedBy(): HasMany
+    {
+        return $this->hasMany(User::class, 'favorites');
     }
 }
