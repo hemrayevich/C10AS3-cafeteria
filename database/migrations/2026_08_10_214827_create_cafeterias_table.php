@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->string('img')->nullable();
             $table->boolean('is_vip')->default(false);
             $table->string('address');
+            $table->string('address_ru')->nullable();
+            $table->string('address_en')->nullable();
             $table->string('phone')->nullable();
             $table->string('working_hours')->nullable();
             $table->timestamps();

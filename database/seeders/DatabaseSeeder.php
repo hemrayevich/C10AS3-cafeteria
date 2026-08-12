@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cafeterias;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,9 +23,14 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        Cafeterias::factory(20)->create();
+
         $this->call([
             CategorySeeder::class,
             CafeteriasSeeder::class,
+            DrinkSeeder::class,
         ]);
+
+
     }
 }
