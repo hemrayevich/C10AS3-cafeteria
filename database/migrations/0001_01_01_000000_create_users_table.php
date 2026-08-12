@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
             $table->string('role')->default('user');
-            $table->foreignId('cafeteria_id')->nullable()->constrained()->nullOnDelete();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

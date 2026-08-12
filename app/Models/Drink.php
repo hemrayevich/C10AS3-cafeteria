@@ -14,11 +14,15 @@ class Drink extends Model
 
     protected $fillable = [
         'name',
+        'name_en',
+        'name_ru',
         'cafeteria_id',
         'category_id',
         'image',
         'price',
         'description',
+        'description_en',
+        'description_ru',
         'weight',
         'is_available',
     ];
@@ -43,8 +47,8 @@ class Drink extends Model
         return $this->hasMany(Reviews::class);
     }
 
-    public function favoritedBy(): HasMany
+    public function favoritedBy(): BelongsToMany
     {
-        return $this->hasMany(User::class, 'favorites');
+        return $this->belongsToMany(User::class, 'favorites');
     }
 }

@@ -58,19 +58,28 @@ class User extends Authenticatable
         return $this->belongsTo(Cafeterias::class);
     }
 
-    public function favorites(): BelongsToMany
-    {
-        return $this->belongsToMany(Drink::class, 'favorites');
-    }
-
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }
 
-    // Отзывы пользователя
+    public function favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(Drink::class, 'favorites');
+    }
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Reviews::class);
+    }
+
+    public function isAdmin(): bool 
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isManager(): bool
+    {
+        return $this->role === 'manager';
     }
 }
