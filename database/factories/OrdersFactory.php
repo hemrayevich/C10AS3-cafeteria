@@ -17,6 +17,10 @@ class ordersFactory extends Factory
      */
     public function definition(): array
     {
+
+        $userId = User::inRandomOrder()->first()?->id ?? User::factory();
+        $cafeteriaId = Cafeteria::inRandomOrder()->first()?->id ?? Cafeteria::factory();
+
         return [
             //
         ];

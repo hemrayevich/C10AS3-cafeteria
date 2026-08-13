@@ -23,6 +23,8 @@ return new class extends Migration {
             $table->text('description_en')->nullable();
             $table->text('description_ru')->nullable();
             $table->string('weight')->nullable();
+            $table->boolean('is_discount')->default(false);
+            $table->integer('discount_percent')->nullable();
             $table->boolean('is_available')->default(true);
             $table->timestamps();
         });

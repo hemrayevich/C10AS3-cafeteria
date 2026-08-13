@@ -13,6 +13,8 @@ return new class extends Migration {
         Schema::create('cafeterias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('name_en')->nullable();
+            $table->string('name_ru')->nullable();
             $table->string('img')->nullable();
             $table->boolean('is_vip')->default(false);
             $table->string('address');
