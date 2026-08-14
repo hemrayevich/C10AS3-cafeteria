@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Cafeterias;
+use App\Models\Cafeteria;
 use App\Models\Category;
-use App\Models\Model;
+use App\Models\Drink;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Model>
+ * @extends Factory<Drink>
  */
 class DrinkFactory extends Factory
 {
@@ -19,7 +19,7 @@ class DrinkFactory extends Factory
      */
     public function definition(): array
     {
-        $cafeteriaId = Cafeterias::inRandomOrder()->first()->id;
+        $cafeteriaId = Cafeteria::inRandomOrder()->first()->id;
         $categoryId = Category::inRandomOrder()->first()->id;
         $isDiscount = fake()->boolean(15);
 

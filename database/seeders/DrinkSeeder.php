@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Drink;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DrinkSeeder extends Seeder

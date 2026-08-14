@@ -3,14 +3,14 @@
 namespace Database\Factories;
 
 use App\Models\Drink;
-use App\Models\Reviews;
-use App\Models\User;
+use App\Models\OrderItem;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Reviews>
+ * @extends Factory<OrderItem>
  */
-class ReviewsFactory extends Factory
+class OrderItemFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,14 +19,15 @@ class ReviewsFactory extends Factory
      */
     public function definition(): array
     {
-        
-        $userId = User::inRandomOrder()->first()->id;
+
+        $orderId = Order::inRandomOrder()->first()->id;
         $drinkId = Drink::inRandomOrder()->first()->id;
 
         return [
-            'user_id' => $userId,
+            'order_id' => $orderId,
             'drink_id' => $drinkId,
-            'rating' => fake()->numberBetween(1, 5),
+            'quantity' => fake()->numberBetween(1, 5),
+            'price'    => fake()->randomFloat(2, 5, 100),
         ];
     }
 }

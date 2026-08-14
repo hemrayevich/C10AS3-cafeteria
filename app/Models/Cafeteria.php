@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Cafeterias extends Model
+class Cafeteria extends Model
 {
     use HasFactory;
 

@@ -27,7 +27,7 @@ class Order extends Model
 
     public function cafeteria(): BelongsTo
     {
-        return $this->belongsTo(Cafeterias::class);
+        return $this->belongsTo(Cafeteria::class);
     }
 
     public function items(): HasMany

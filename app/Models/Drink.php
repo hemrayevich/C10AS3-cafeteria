@@ -29,7 +29,7 @@ class Drink extends Model
 
     public function cafeteria(): BelongsTo
     {
-        return $this->belongsTo(Cafeterias::class);
+        return $this->belongsTo(Cafeteria::class);
     }
 
     public function category(): BelongsTo

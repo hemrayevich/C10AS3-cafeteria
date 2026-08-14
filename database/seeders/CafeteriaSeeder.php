@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cafeterias;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Cafeteria;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CafeteriasSeeder extends Seeder
+class CafeteriaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -80,7 +80,7 @@ class CafeteriasSeeder extends Seeder
         ];
 
         foreach ($cafeterias as $cafeteria) {
-            Cafeterias::create($cafeteria);
+            Cafeteria::create($cafeteria);
         }
     }
 }

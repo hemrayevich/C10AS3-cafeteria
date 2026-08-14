@@ -14,14 +14,60 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Koffee', 'name_en' => 'Coffee', 'name_ru' => 'Кофе'],
-            ['name' => 'Çaý', 'name_en' => 'Tea', 'name_ru' => 'Чай'],
-            ['name' => 'Smuzi', 'name_en' => 'Smoothie', 'name_ru' => 'Смузи'],
-            ['name' => 'Limonad', 'name_en' => 'Lemonade', 'name_ru' => 'Лимонад'],
-            ['name' => 'Sowuk koffee', 'name_en' => 'Cold Coffee', 'name_ru' => 'Холодный кофе'],
-            ['name' => 'Şokolad we Kakao', 'name_en' => 'Chocolate & Cocoa', 'name_ru' => 'Шоколад и Какао'],
-            ['name' => 'Süýtli kokteýller', 'name_en' => 'Milkshakes', 'name_ru' => 'Молочные коктейли'],
-            ['name' => 'Fresh şireler', 'name_en' => 'Fresh Juices', 'name_ru' => 'Свежевыжатые соки'],
+            [
+                'name' => 'Koffee, Çaý',
+                'name_en' => 'Coffee, Tea',
+                'name_ru' => 'Кофе, Чай',
+                'img' => 'image/categorie/kofeCay.png'
+            ],
+            [
+                'name' => 'Moxito',
+                'name_en' => 'Moxito',
+                'name_ru' => 'Махито',
+                'img' => 'image/categorie/mohito.png'
+            ],
+            [
+                'name' => 'Frappuçino',
+                'name_en' => 'Frappuchino',
+                'name_ru' => 'Фрапучино',
+                'img' => 'image/categorie/frapucino.png'
+            ],
+            [
+                'name' => 'Smuzi',
+                'name_en' => 'Smoothie',
+                'name_ru' => 'Смузи',
+                'img' => 'image/categorie/Smuzi.png'
+            ],
+            [
+                'name' => 'Limonad',
+                'name_en' => 'Lemonade',
+                'name_ru' => 'Лимонад',
+                'img' => 'image/categorie/limonad.png'
+            ],
+            [
+                'name' => 'Sowuk çay',
+                'name_en' => 'Cold Tea',
+                'name_ru' => 'Холодный  Чай',
+                'img' => 'image/categorie/coldTea.png'
+            ],
+            [
+                'name' => 'Şokolad we Kakao',
+                'name_en' => 'Chocolate & Cocoa',
+                'name_ru' => 'Шоколад и Какао',
+                'img' => 'image/categorie/kakao.png'
+            ],
+            [
+                'name' => 'Süýtli kokteýller',
+                'name_en' => 'Milkshakes',
+                'name_ru' => 'Молочные коктейли',
+                'img' => 'image/categorie/Koktel.png'
+            ],
+            [
+                'name' => 'Fresh şireler',
+                'name_en' => 'Fresh Juices',
+                'name_ru' => 'Свежевыжатые соки',
+                'img' => 'image/categorie/sok.png'
+            ],
         ];
 
         foreach ($categories as $category) {
@@ -29,6 +75,7 @@ class CategorySeeder extends Seeder
                 'name' => $category['name'],
                 'name_en' => $category['name_en'],
                 'name_ru' => $category['name_ru'],
+                'img' => $category['img'],
             ]);
         }
     }
