@@ -10,7 +10,10 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         if (!Auth::check()) {
-            return response()->json(['success' => false, 'message' => 'Войдите в аккаунт!'], 401);
+            return response()->json([
+                'success' => false,
+                'message' => 'Ilki ulgama giriň!'
+            ], 401);
         }
 
         $request->validate([
@@ -28,6 +31,9 @@ class ReviewController extends Controller
             ]
         );
 
-        return response()->json(['success' => true, 'message' => 'Оценка сохранена!']);
+        return response()->json([
+            'success' => true,
+            'message' => 'Baha üstünlikli ýatda saklandy!' // Оценка успешно сохранена
+        ]);
     }
 }

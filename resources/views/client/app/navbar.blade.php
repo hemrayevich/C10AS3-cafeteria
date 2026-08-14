@@ -41,10 +41,43 @@
                     </ul>
                 </div>
 
-                <a href="#" class="d-none d-lg-flex align-items-center gap-2 text-dark text-decoration-none fw-medium">
-                    <i class="bi bi-person fs-5"></i>
-                    <span>Hasabym</span>
-                </a>
+                <div class="dropdown">
+                    <button class="btn btn-link text-dark text-decoration-none p-0 d-flex align-items-center gap-2 fw-medium border-0"
+                        type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person fs-5"></i>
+                        <span class="d-none d-lg-inline">{{ Auth::check() ? Auth::user()->name : 'Hasabym' }}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                        @auth
+                            @if (Auth::user()->isStaff())
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                        <i class="bi bi-speedometer2 me-2 text-success"></i>Admin panel
+                                    </a>
+                                </li>
+                            @endif
+                            <li>
+                                <form action="{{ route('client.logout') }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item text-danger">
+                                        <i class="bi bi-box-arrow-right me-2"></i>Çykyş
+                                    </button>
+                                </form>
+                            </li>
+                        @else
+                            <li>
+                                <a class="dropdown-item" href="{{ route('client.login') }}">
+                                    <i class="bi bi-box-arrow-in-right me-2 text-success"></i>Giriş
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('client.register') }}">
+                                    <i class="bi bi-person-plus me-2 text-success"></i>Hasap döret
+                                </a>
+                            </li>
+                        @endauth
+                    </ul>
+                </div>
 
                 <a href="#" class="text-secondary p-1 text-decoration-none">
                     <i class="bi bi-heart fs-5"></i>

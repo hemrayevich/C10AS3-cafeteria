@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     public function showLogin()
     {
-        return view('client.auth.login');
+        return view('auth.login');
     }
 
-    // Авторизация
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -23,47 +22,55 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('success', 'Hoş geldiňiz!');
+
+            if (Auth::user()->isStaff()) {
+                return redirect()->intended(route('admin.dashboard'))
+                    ->with('success', 'Hoş geldiňiz!');
+            }
+
+            return redirect()->intended(route('client.home.index'))
+                ->with('success', 'Hoş geldiňiz!');
         }
 
         return back()->withErrors([
-            'email' => 'E-poçta ýa-da açarsöz näşaz.',
+            'email' => 'E-poçta ýa-da açarsöz nädogry.',
         ])->onlyInput('email');
     }
 
-    // Форма регистрации
     public function showRegister()
     {
-        return view('client.auth.register');
+        return view('auth.register');
     }
 
-    // Регистрация
     public function register(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone_number' => 'nullable|string|max:30',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'phone_number' => $request->phone_number,
+            'password' => $request->password,
+            'role' => 'user',
         ]);
 
         Auth::login($user);
 
-        return redirect('/')->with('success', 'Hasabyňyz döredildi!');
+        return redirect()->route('client.home.index')
+            ->with('success', 'Hasabyňyz döredildi!');
     }
 
-    // Выход
     public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('client.home.index');
     }
 }

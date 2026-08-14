@@ -21,20 +21,16 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(40)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
         Cafeteria::factory(50)->create();
 
         $this->call([
+            AdminSeeder::class,
             CategorySeeder::class,
             CafeteriaSeeder::class,
             DrinkSeeder::class,
         ]);
 
-        Drink::factory(100)->create();
+        Drink::factory(150)->create();
 
         $drinks = Drink::all();
         Order::factory(23)->create()->each(function ($order) use ($drinks) {
@@ -50,9 +46,5 @@ class DatabaseSeeder extends Seeder
         });
 
         Reviews::factory(50)->create();
-
-        // ->recycle($users)->recycle($drinks)
-
-
     }
 }

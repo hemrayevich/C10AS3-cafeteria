@@ -29,23 +29,23 @@ class DrinkFactory extends Factory
 
         $weight = ['250ml', '330ml', '500ml', '1L'];
 
-        $image = ['drinks/espresso.jpg', 'drinks/americano.jpg', 'drinks/cappuccino.jpg'];
+        $image = ['image/drinks/espresso.jpg', 'image/drinks/americano.jpg', 'image/drinks/capucino.jpg'];
 
         return [
             'cafeteria_id' => $cafeteriaId,
-            'category_id'  => $categoryId,
-            'name'           => $drinkName,
-            'name_en'        => $drinkName,
-            'name_ru'        => $drinkName,
-            'image'          => fake()->randomElement($image),
-            'price'          => fake()->randomFloat(2, 10, 300),
-            'description'    => $description,
+            'category_id' => $categoryId,
+            'name' => $drinkName,
+            'name_en' => $drinkName,
+            'name_ru' => $drinkName,
+            'image' => fake()->randomElement($image),
+            'price' => fake()->randomFloat(2, 10, 300),
+            'description' => $description,
             'description_en' => $description,
             'description_ru' => $description,
-            'weight'         => fake()->randomElement($weight),
+            'weight' => fake()->randomElement($weight),
             'is_discount' => $isDiscount,
             'discount_percent' => $isDiscount ? fake()->numberBetween(5, 30) : null,
-            'is_available'   => fake()->boolean(85),
+            'is_available' => fake()->boolean(85),
         ];
     }
 }

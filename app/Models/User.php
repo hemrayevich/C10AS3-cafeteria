@@ -73,7 +73,7 @@ class User extends Authenticatable
         return $this->hasMany(Reviews::class);
     }
 
-    public function isAdmin(): bool 
+    public function isAdmin(): bool
     {
         return $this->role === 'admin';
     }
@@ -81,5 +81,10 @@ class User extends Authenticatable
     public function isManager(): bool
     {
         return $this->role === 'manager';
+    }
+
+    public function isStaff(): bool
+    {
+        return $this->isAdmin() || $this->isManager();
     }
 }

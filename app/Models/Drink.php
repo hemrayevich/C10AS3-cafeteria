@@ -24,6 +24,8 @@ class Drink extends Model
         'description_en',
         'description_ru',
         'weight',
+        'is_discount',
+        'discount_percent',
         'is_available',
     ];
 
@@ -50,5 +52,14 @@ class Drink extends Model
     public function favoritedBy(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'favorites');
+    }
+
+    public function finalPrice(): float
+    {
+        if ($this->is_discount && $this->discount_percent) {
+            return round((float) $this->price * (1 - $this->discount_percent / 100), 2);
+        }
+
+        return (float) $this->price;
     }
 }

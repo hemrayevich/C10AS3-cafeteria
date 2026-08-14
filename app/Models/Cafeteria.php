@@ -11,21 +11,15 @@ class Cafeteria extends Model
 {
     use HasFactory;
 
-    // public function artist(): BelongsTo
-    // {
-    //     return $this->belongsTo(::class);
-    // }
-
-    // public function songs(): HasMany
-    // {
-    //     return $this->hasMany(Song::class);
-    // }
-
     protected $fillable = [
         'name',
+        'name_en',
+        'name_ru',
         'img',
         'is_vip',
         'address',
+        'address_en',
+        'address_ru',
         'phone',
         'working_hours',
     ];

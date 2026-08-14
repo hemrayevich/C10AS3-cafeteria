@@ -3,7 +3,7 @@
         <div class="row g-4 mb-4">
 
             <div class="col-12 col-md-4">
-                <h3 class="fw-bold text-success mb-3">Meshur.com</h3>
+                <h3 class="fw-bold text-success mb-3">Damja</h3>
                 <p class="text-secondary small mb-3 style-description">
                     Aşgabat şäheriniň iň meşhur kofehanalary we restoranlary bir ýerde. Sebitdäki iň tiz eltip bermek
                     hyzmaty!
@@ -14,7 +14,7 @@
                 </div>
                 <div class="d-flex align-items-center gap-2 text-secondary small">
                     <i class="bi bi-telephone text-success fs-5"></i>
-                    <span>+993 (12) 00-00-00</span>
+                    <span>+993 63 18-85-63</span>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
 
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary">
             <div class="mb-2 mb-sm-0">
-                © {{ date('Y') }} <strong class="text-white">Meshur.com</strong>. Ähli hukuklar goragly.
+                © {{ date('Y') }} <strong class="text-white">Damja</strong>. Ähli hukuklar goragly.
             </div>
             <div>
                 Damja platformasy
